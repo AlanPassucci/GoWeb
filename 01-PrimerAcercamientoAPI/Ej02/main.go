@@ -34,12 +34,12 @@ func main() {
 		person := Person{}
 		jsonData, err := c.GetRawData()
 		if err != nil {
-			c.JSON(400, gin.H{"message": err})
+			c.JSON(400, gin.H{"message": err.Error()})
 			return
 		}
 
 		if err := json.Unmarshal(jsonData, &person); err != nil {
-			c.JSON(400, gin.H{"message": err})
+			c.JSON(400, gin.H{"message": err.Error()})
 			return
 		}
 
